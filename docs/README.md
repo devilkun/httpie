@@ -1,6 +1,6 @@
 <div class='hidden-website'>
 
-# HTTPie Documentation
+# HTTPie documentation
 
 </div>
 
@@ -34,7 +34,7 @@ You are invited to submit fixes and improvements to the docs by editing [this fi
 - Custom headers
 - Persistent sessions
 - Wget-like downloads
-- Linux, macOS and Windows support
+- Linux, macOS, Windows, and FreeBSD support
 - Plugins
 - Documentation
 - Test coverage
@@ -102,9 +102,18 @@ $ apk add httpie
 $ eopkg install httpie
 ```
 
+### FreeBSD
+
+On FreeBSD, HTTPie is available in the ports collection. A prebuilt package
+can be installed via [pkg(8)](https://man.freebsd.org/pkg/8>):
+
+```bash
+$ pkg install www/py-httpie
+```
+
 ### Windows, universal
 
-A universal installation method (that works on Linux, macOS and Windows, and always provides the latest version) is to use [pip](https://pypi.org/project/pip/):
+A universal installation method (that works on Linux, macOS, Windows, FreeBSD, and always provides the latest version) is to use [pip](https://pypi.org/project/pip/):
 
 ```bash
 # Make sure we have an up-to-date version of pip and setuptools:
@@ -131,7 +140,7 @@ Python version 3.6 or greater is required.
 You can also install the latest unreleased development version directly from the `master` branch on GitHub.
 It is a work-in-progress of a future stable release so the experience might be not as smooth.
 
-You can install it on Linux, macOS or Windows with `pip`:
+You can install it on Linux, macOS, Windows, or FreeBSD with `pip`:
 
 ```bash
 $ python -m pip install --upgrade https://github.com/httpie/httpie/archive/master.tar.gz
@@ -148,7 +157,7 @@ Verify that now you have the [current development version identifier](https://gi
 
 ```bash
 $ http --version
-# 2.5.0
+# 2.6.0.dev0
 ```
 
 ## Usage
@@ -1182,12 +1191,6 @@ There are dozens of styles available, here are just a few notable ones:
 |  `fruity` | A bold, colorful scheme. Enable with `--style=fruity`                                                                               |
 |         … | See `$ http --help` for all the possible `--style` values                                                                           |
 
-Also, the following formatting is applied:
-
-- HTTP headers are sorted by name.
-- JSON data is indented, sorted by keys, and unicode escapes are converted
-  to the characters they represent.
-
 Use one of these options to control output processing:
 
 |            Option | Description                                                   |
@@ -1196,6 +1199,13 @@ Use one of these options to control output processing:
 | `--pretty=colors` | Apply colors                                                  |
 | `--pretty=format` | Apply formatting                                              |
 |   `--pretty=none` | Disables output processing. Default for redirected output     |
+
+Formatting has the following effects:
+
+- HTTP headers are sorted by name.
+- JSON data is indented, sorted by keys, and unicode escapes are converted
+  to the characters they represent.
+- XML and XHTML data is indented.
 
 You can further control the applied formatting via the more granular [format options](#format-options).
 

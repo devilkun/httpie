@@ -88,12 +88,17 @@ plugs:
     interface: personal-files
     write:
       - $HOME/.config/httpie
+  dot-httpie:
+    interface: personal-files
+    write:
+      - $HOME/.httpie
 
 apps:
   http:
     command: bin/http
     plugs: &plugs
       - dot-config-httpie
+      - dot-httpie
       - home
       - network
       - removable-media

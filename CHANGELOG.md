@@ -3,7 +3,15 @@
 This document records all notable changes to [HTTPie](https://httpie.io).
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.6.0.dev0](https://github.com/httpie/httpie/compare/2.5.0...master) (unreleased)
+
+- Added support for formatting & coloring of JSON bodies preceded by non-JSON data (e.g., an XXSI prefix). ([#1130](https://github.com/httpie/httpie/issues/1130))
+- Installed plugins are now listed in `--debug` output. ([#1165](https://github.com/httpie/httpie/issues/1165))
+- Fixed duplicate keys preservation of JSON data. ([#1163](https://github.com/httpie/httpie/issues/1163))
+
 ## [2.5.0](https://github.com/httpie/httpie/compare/2.4.0...2.5.0) (2021-09-06)
+
+Blog post: [What’s new in HTTPie 2.5.0](https://httpie.io/blog/httpie-2.5.0)
 
 - Added `--raw` to allow specifying the raw request body without extra processing as
   an alternative to `stdin`. ([#534](https://github.com/httpie/httpie/issues/534))
